@@ -1,19 +1,19 @@
 criaCartao(
     'Desmatamento',
     'O que é Desmatamento?',
-    'Desmatamento, também conhecido como desflorestação, é a remoção total ou parcial da cobertura vegetal, geralmente florestas, para outros usos, como agricultura, pastagem, mineração ou urbanização. É um dos principais problemas ambientais globais, com consequências significativas para o clima, a biodiversidade e os ecossistemas. '
+    'Desmatamento é a retirada total ou parcial da vegetação, principalmente florestas, para usos como agricultura, mineração ou expansão urbana. É um dos maiores problemas ambientais do mundo, com impacto direto no clima e na biodiversidade. '
 )
 
 criaCartao(
     'Malefícios',
-    'Malefícios do Desmatamento',
-    'O desmatamento traz uma série de consequências negativas, afetando o meio ambiente, a sociedade e a economia. Entre os principais malefícios estão a perda de biodiversidade, a alteração do clima, a erosão do solo, a contaminação da água, a perda de serviços ecossistêmicos e a violação dos direitos humanos. '
+    'Malefícios do Desmatamento!',
+    'O desmatamento causa perda de biodiversidade, mudanças climáticas, erosão do solo, poluição da água e desequilíbrio dos ecossistemas. Também pode afetar comunidades locais e seus direitos. '
 )
 
 criaCartao(
     'Como ajudar',
-    'Meios para impedir o desmatamento',
-    'Para combater o desmatamento, são necessárias ações em diversas frentes, desde a implementação de políticas públicas eficientes até a mudança de atitudes individuais. A fiscalização e controle ambiental, a conscientização da população, o desenvolvimento de atividades sustentáveis e o uso de tecnologias de monitoramento são cruciais. '
+    'Meios para impedir o desmatamento!',
+    'É preciso agir com políticas públicas, fiscalização, educação ambiental e uso de tecnologias. Atitudes sustentáveis, tanto coletivas quanto individuais, são essenciais para proteger as florestas. '
 )
 
 criaCartao(
