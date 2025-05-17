@@ -3,6 +3,7 @@
     --card-front-color: #0c700e;
     --card-back-color: #00F4BF;
     --verde: #0a400b;
+    --verde-claro: #94e995;
 }
 
 body {
@@ -90,7 +91,7 @@ body {
 }
 
 .botao-inicio {
-    background-color: var(--verde);
+    background-color: var(--verde-claro);
     border-radius: 30px;
     border: none;
     width: 14em;
