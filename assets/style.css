@@ -26,6 +26,25 @@ body {
     z-index: 1000;
 }
 
+.alto-contraste {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.alto-contraste a {
+    color: #0ff !important;
+}
+
+.alto-contraste .cartao {
+    background-color: #222 !important;
+    border: 2px solid #fff !important;
+}
+
+.alto-contraste .cartao__conteudo__pergunta,
+.alto-contraste .cartao__conteudo__resposta {
+    color: #fff !important;
+}
+
 .cartao {
     margin: 1rem 1rem;
     height: 20rem;
