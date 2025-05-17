@@ -15,11 +15,18 @@ function criaCartao(categoria, pergunta, resposta) {
     </div>
     `
 
+    
+    cartao.setAttribute('tabindex', '0');
+    cartao.setAttribute('role', 'button');
+    cartao.setAttribute('aria-pressed', 'false');
+    cartao.setAttribute('aria-label', `Cartão de ${categoria}, clique para mostrar ou esconder a resposta`);
+
     let respostaEstaVisivel = false
 
     function viraCartao() {
         respostaEstaVisivel = !respostaEstaVisivel
         cartao.classList.toggle('active', respostaEstaVisivel)
+        cartao.setAttribute('aria-pressed', respostaEstaVisivel.toString());
     }
     cartao.addEventListener('click', viraCartao)
 
