@@ -112,11 +112,11 @@ body {
 }
 .alto-contraste {
   background-color: #000 !important;
-  color: #000 !important;
+  color: #fff !important;
 }
 
 .alto-contraste a {
-  color: #296341 !important;
+  color: #0ff !important;
 }
 
 .alto-contraste .cartao {
