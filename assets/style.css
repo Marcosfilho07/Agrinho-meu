@@ -112,16 +112,16 @@ body {
 }
 .alto-contraste {
   background-color: #000 !important;
-  color: #fff !important;
+  color: #000 !important;
 }
 
 .alto-contraste a {
-  color: #0ff !important;
+  color: #296341 !important;
 }
 
 .alto-contraste .cartao {
   background-color: #222 !important;
-  border: 2px solid #fff !important;
+  border: 2px solid #000 !important;
 }
 
 .alto-contraste .cartao_conteudo_pergunta,
