@@ -169,9 +169,3 @@ html.modo-reduzido {
     flex: 1 1 100%;
   }
 }
-
-    #container {
-        padding: 2rem 1rem;
-        gap: 2rem;
-    }
-}
