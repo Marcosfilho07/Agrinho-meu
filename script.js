@@ -1,32 +1,31 @@
-document.addEventListener('DOMContentLoaded', function(){
-    const botaoDeAcessibilidade = document.getElementById('botao-acessibilidade')
-    const opcoesDeAcessibilidade = document.getElementById('opcoes-acessibilidade')
+document.addEventListener('DOMContentLoaded', () => {
+  const botaoMenu = document.getElementById('botao-acessibilidade');
+  const lista = document.getElementById('opcoes-acessibilidade');
+  const btnAumentar = document.getElementById('aumentar-fonte');
+  const btnDiminuir = document.getElementById('diminuir-fonte');
+  const btnContraste = document.getElementById('alterna-contraste');
 
-    botaoDeAcessibilidade.addEventListener('click', function (){
-        botaoDeAcessibilidade.classList.toggle('rotacao-botao');
-        opcoesDeAcessibilidade.classList.toggle('apresenta-lista')
+  // Mostrar/ocultar lista
+  botaoMenu.addEventListener('click', () => {
+    const expanded = botaoMenu.getAttribute('aria-expanded') === 'true';
+    botaoMenu.setAttribute('aria-expanded', (!expanded).toString());
+    lista.classList.toggle('mostrar');
+  });
 
-        const botaoSelecionado = botaoDeAcessibilidade.getAttribute('aria-expanded') === 'true';
-        botaoDeAcessibilidade.setAttribute('aria-expanded', !botaoSelecionado)
-    })
+  // Aumentar fonte
+  btnAumentar.addEventListener('click', () => {
+    document.documentElement.classList.remove('modo-reduzido');
+    document.documentElement.classList.add('modo-aumentado');
+  });
 
-    const aumentaFonteBotao = document.getElementById('aumentar-fonte');
-    const diminuiFonteBotao = document.getElementById('diminuir-fonte');
-    const alternaContraste = document.getElementById('alterna-contraste');
+  // Diminuir fonte
+  btnDiminuir.addEventListener('click', () => {
+    document.documentElement.classList.remove('modo-aumentado');
+    document.documentElement.classList.add('modo-reduzido');
+  });
 
-    let tamanhoAtualFonte = 1;
-
-    aumentaFonteBotao.addEventListener('click', function(){
-        tamanhoAtualFonte += 0.1;
-        document.body.style.setProperty('--fonte-base', ${tamanhoAtualFonte}rem);
-    })
-
-    diminuiFonteBotao.addEventListener('click', function(){
-        tamanhoAtualFonte -= 0.1;
-        document.body.style.setProperty('--fonte-base', ${tamanhoAtualFonte}rem);
-    })
-
-    alternaContraste.addEventListener('click', function(){
-        document.body.classList.toggle('alto-contraste')
-    })
+  // Alternar contraste
+  btnContraste.addEventListener('click', () => {
+    document.body.classList.toggle('alto-contraste');
+  });
 });
