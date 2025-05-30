@@ -1,171 +1,174 @@
+/* ---------- Variáveis ---------- */
 :root {
-    --text-color: #DBE4EF;
-    --card-front-color: #0c700e;
-    --card-back-color: #00F4BF;
-    --verde: #0a400b;
-    --verde-claro: #3b9712;
+  --text-color: #dbe4ef;
+  --card-front: #0c700e;
+  --card-back:  #00f4bf;
+  --verde-claro: #3b9712;
+  --fonte-base: 1rem;
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-    background: url('img/bg-desktop.webp') no-repeat center center / cover;
-    font-family: 'Bai Jamjuree', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-size: 1rem;
+  margin: 0;
+  font-family: 'Bai Jamjuree', sans-serif;
+  font-size: var(--fonte-base);
+  background: #000; /* troque pela sua imagem se quiser */
+  color: var(--text-color);
 }
 
-#container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 4rem;
-    gap: 3rem;
-}
-
+/* ---------- Acessibilidade ---------- */
 .menu-acessibilidade {
-    position: fixed;
-    top: 2rem;
-    right: 20px;
-    z-index: 1000;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
 }
 
-.opcoes-acessibilidade {
-    display: none;
-    margin-top: 0.5rem;
-    flex-direction: column;
-    gap: 0.5rem;
+.menu-acessibilidade button {
+  padding: 0.4rem 0.8rem;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
 }
 
-.apresenta-lista {
-    display: flex !important;
+.lista-acessibilidade {
+  display: none;
+  flex-direction: column;
 }
 
+.lista-acessibilidade.mostrar {
+  display: flex;
+}
+
+/* ---------- Container dos cartões ---------- */
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 4rem;
+  justify-content: center;
+}
+
+/* ---------- Cartão ---------- */
 .cartao {
-    margin: 1rem 1rem;
-    flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
-    min-height: 20rem;
-    perspective: 1000px;
-    position: relative;
+  flex: 1 1 calc(33% - 2rem);
+  min-width: 280px;
+  perspective: 1000px;
 }
 
 .cartao__conteudo {
-    background-color: var(--card-front-color);
-    text-align: center;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 300ms ease-in-out;
-    position: relative;
-}
-
-.cartao__conteudo h3 {
-    color: var(--text-color);
-    border: 1px solid var(--text-color);
-    text-align: left;
-    padding: 0.5rem;
-    position: absolute;
-    margin: 0.6rem;
-    border-radius: 0.6rem;
-    font-size: clamp(14px, 1vw, 18px);
-    backface-visibility: hidden;
-}
-
-.cartao__conteudo p {
-    margin-top: 4rem;
-    padding: 2rem;
-    font-size: clamp(16px, 1.4vw, 22px);
-    overflow-wrap: break-word;
-    word-break: break-word;
-    box-sizing: border-box;
-}
-
-.cartao_conteudo_pergunta p {
-    color: var(--text-color);
-    font-weight: 500;
-}
-
-.cartao_conteudo_resposta p {
-    color: var(--card-back-color);
-    font-weight: 700;
+  position: relative;
+  height: 100%;
+  min-height: 20rem;
+  text-align: center;
+  background: var(--card-front);
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
 }
 
 .cartao.active .cartao__conteudo {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
-.cartao_conteudo_pergunta,
-.cartao_conteudo_resposta {
-    backface-visibility: hidden;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-y: auto;
-    padding: 2rem;
+/* Frente e verso */
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+  position: absolute;
+  inset: 0;
+  padding: 3.5rem 2rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  overflow-y: auto;
 }
 
-.cartao_conteudo_resposta {
-    transform: rotateY(180deg);
-    background-color: rgba(0, 244, 191, 0.2);
-    border: 4px solid var(--card-back-color);
+.cartao__conteudo__pergunta p {
+  color: var(--text-color);
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
 }
 
+.cartao__conteudo__resposta {
+  transform: rotateY(180deg);
+  background: rgba(0, 244, 191, 0.15);
+  border: 3px solid var(--card-back);
+}
+
+.cartao__conteudo__resposta p {
+  color: var(--card-back);
+  font-weight: 700;
+  font-size: clamp(1rem, 1.2vw, 1.4rem);
+}
+
+/* Título do cartão */
+.cartao__conteudo h3 {
+  position: absolute;
+  top: 0.8rem;
+  left: 0.8rem;
+  margin: 0;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--text-color);
+  border-radius: 0.4rem;
+  font-size: clamp(0.9rem, 1vw, 1.1rem);
+  background: rgba(0, 0, 0, 0.2);
+  backface-visibility: hidden;
+}
+
+/* ---------- Botão externo & rodapé ---------- */
 .botao-inicio {
-    background-color: var(--verde-claro);
-    border-radius: 30px;
-    border: none;
-    width: 14em;
-    height: 3em;
-    align-content: center;
+  background: var(--verde-claro);
+  border: none;
+  border-radius: 2rem;
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
-.my-5 {
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
-    font-size: 13px;
-    margin: 20px 0 0;
+.assinatura {
+  margin: 1.5rem 0 0;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
+/* ---------- Alto contraste ---------- */
 .alto-contraste {
-    background-color: #000 !important;
-    color: #fff !important;
+  background: #000 !important;
+  color: #fff !important;
 }
 
-.alto-contraste a {
-    color: #fff !important;
+.alto-contraste .cartao__conteudo {
+  background: #222 !important;
 }
 
-.alto-contraste .cartao {
-    background-color: #222 !important;
-    border: 2px solid #fff !important;
+.alto-contraste .cartao__conteudo h3,
+.alto-contraste .cartao__conteudo__pergunta p,
+.alto-contraste .cartao__conteudo__resposta p {
+  color: #fff !important;
 }
 
-.alto-contraste .cartao_conteudo_pergunta p,
-.alto-contraste .cartao_conteudo_resposta p,
-.alto-contraste .cartao__conteudo h3 {
-    color: #fff !important;
+/* ---------- Aumentar/diminuir fonte ---------- */
+html.modo-aumentado {
+  --fonte-base: 1.15rem;
 }
 
-@media (max-width: 560px) {
-    body {
-        background: url('img/bg-mobile.webp') no-repeat center center / cover;
-    }
+html.modo-reduzido {
+  --fonte-base: 0.9rem;
+}
 
-    .cartao {
-        flex: 1 0 calc(100% - 2rem);
-    }
-
-    .cartao__conteudo h3 {
-        font-size: clamp(16px, 3vw, 24px);
-    }
-
-    .cartao__conteudo p {
-        font-size: clamp(18px, 3.8vw, 28px);
-    }
+/* ---------- Responsivo ---------- */
+@media (max-width: 640px) {
+  #container {
+    padding: 2rem;
+  }
+  .cartao {
+    flex: 1 1 100%;
+  }
+}
 
     #container {
         padding: 2rem 1rem;
