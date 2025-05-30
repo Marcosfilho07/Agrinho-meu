@@ -5,21 +5,20 @@ function criaCartao(categoria, pergunta, resposta) {
 
     cartao.innerHTML = `
     <div class="cartao__conteudo">
-    <h3>${categoria}</h3>
-    <div class="cartao__conteudo__pergunta">
-        <p>${pergunta}</p>
-    </div>
-    <div class="cartao__conteudo__resposta">
-        <p>${resposta}</p>
-    </div>
+        <h3>${categoria}</h3>
+        <div class="cartao_conteudo_pergunta">
+            <p>${pergunta}</p>
+        </div>
+        <div class="cartao_conteudo_resposta">
+            <p>${resposta}</p>
+        </div>
     </div>
     `
 
-    
     cartao.setAttribute('tabindex', '0');
     cartao.setAttribute('role', 'button');
     cartao.setAttribute('aria-pressed', 'false');
-    cartao.setAttribute('aria-label', `Cartão de ${categoria}, clique para mostrar ou esconder a resposta`);
+    cartao.setAttribute('aria-label', Cartão de ${categoria}, clique para mostrar ou esconder a resposta);
 
     let respostaEstaVisivel = false
 
@@ -28,6 +27,10 @@ function criaCartao(categoria, pergunta, resposta) {
         cartao.classList.toggle('active', respostaEstaVisivel)
         cartao.setAttribute('aria-pressed', respostaEstaVisivel.toString());
     }
+    cartao.addEventListener('click', viraCartao)
+
+    container.appendChild(cartao)
+}
     cartao.addEventListener('click', viraCartao)
 
 
