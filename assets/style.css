@@ -30,10 +30,10 @@ body {
 }
 
 .cartao {
-    margin: 1rem 1rem;
-    height: 20rem;
-    flex-grow: 1;
-    flex-basis: calc(33% - 6rem);
+    margin: 1rem 1rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    min-height: 20rem; /* Substitui a altura fixa */
 }
 
 .cartao__conteudo {
@@ -57,9 +57,12 @@ body {
 }
 
 .cartao__conteudo p {
-    margin-top: 4rem;
-    padding: 2rem;
-    font-size: clamp(16px, 1.4vw, 22px);
+    margin-top: 4rem;
+    padding: 2rem;
+    font-size: clamp(16px, 1.4vw, 22px);
+    overflow-wrap: break-word;  /* Quebra palavras longas */
+    word-break: break-word;
+    box-sizing: border-box;
 }
 
 .cartao__conteudo__pergunta p {
@@ -78,11 +81,13 @@ body {
 
 .cartao__conteudo__pergunta,
 .cartao__conteudo__resposta {
-    backface-visibility: hidden;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto; /* Permite rolagem interna */
+    padding: 2rem;
 }
 
 .cartao__conteudo__resposta {
