@@ -31,9 +31,3 @@ function criaCartao(categoria, pergunta, resposta) {
 
     container.appendChild(cartao)
 }
-    cartao.addEventListener('click', viraCartao)
-
-
-    container.appendChild(cartao)
-
-}
